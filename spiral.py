@@ -7,10 +7,10 @@ def main():
 
 def spiral():
     """
-    [WRITE YOUR FUNCTION'S DESCRIPTION HERE]
+    This is the master function that executes reach_center, makes Karel turn around, and makes him fill the spiral he just traveled through with beepers.
 
-    pre-condition:  [WRITE YOUR PRE-CONDITION HERE]
-    post-condition: [WRITE YOUR POST-CONDITION HERE]
+    pre-condition:  Karel is at (1,1) facing east.
+    post-condition: Every available space within the spiral contains a beeper. Karel is standing right outside the exit of the spiral (as in, he took one step out of the spiral) facing east.
     """
 
     # YOU ARE FREE TO DIVIDE YOUR PROBLEM UP THIS WAY, BUT IF YOU PREFER ANY OTHER WAY, DO WHATEVER MAKES MOST SENSE
@@ -23,10 +23,10 @@ def spiral():
 
 def reach_center():
     """
-    [WRITE YOUR FUNCTION'S DESCRIPTION HERE]
+    This is the function that gets Karel to the center of the spiral from his starting position at (1,1).
 
-    pre-condition:  [WRITE YOUR PRE-CONDITION HERE]
-    post-condition: [WRITE YOUR POST-CONDITION HERE]
+    pre-condition:  Karel is at (1,1) facing east.
+    post-condition: Karel is at the center of the spiral facing the wall at its end. Only one beeper has been placed at the first space inside the spiral so that Karel knows where to stop when he is returning.
     """
     while front_is_clear():
         move()
@@ -47,10 +47,10 @@ def reach_center():
 
 def leave_spiral():
     """
-    [WRITE YOUR FUNCTION'S DESCRIPTION HERE]
+    This is the function that tells Karel to leave the spiral, placing beepers on all the empty squares inside. He knows to stop when he hits the beeper that he placed at the entrance before, at which point he will stop placing beepers, move one space forward so he is no longer in the spiral, and stop.
 
-    pre-condition:  [WRITE YOUR PRE-CONDITION HERE]
-    post-condition: [WRITE YOUR POST-CONDITION HERE]
+    pre-condition:  Karel is at the center of the spiral facing away from the wall at its end. Only one beeper has been placed at the first space inside the spiral so that Karel knows where to stop.
+    post-condition: All available spaces in the spiral contain a beeper and Karel is standing right outside the entrance to the spiral facing east.
     """
     while (front_is_clear() or right_is_clear()) and not on_beeper():
         put_beeper()
