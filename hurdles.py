@@ -6,7 +6,7 @@ def pave_all_hurdles():
     This is the master function that gets Karel from one side of the chart to the other and covers the entire chart in a layer of beepers over all the hurdles.
 
     pre-condition:  Karel is at (1,1) facing north. To his right is the first hurdle. There are no beepers on the board.
-    post-condition: Karel has gone over every hurdle, placing a beeper in every position
+    post-condition: Karel has gone over every hurdle, placing a beeper in every position that is anywhere next to a hurdle (including above), and is in the bottom-right corner of the board, facing North with a wall in front of him.
     """
 
     # YOU ARE FREE TO DIVIDE YOUR PROBLEM UP THIS WAY, BUT IF YOU PREFER ANY OTHER WAY, DO WHATEVER MAKES MOST SENSE
@@ -51,10 +51,10 @@ def move_to_wall():
 
 def move_with_wall_on_right():
     """
-    This
+    This function is the "up and over" part of the hurdle - it is executed twice in the pave_hurdle function, once to get Karel from the bottom-left to the top-left of the hurdle and again to get Karel from the top-left to the top-right. As long as there is a wall to Karel's right, he will place a beeper and move forward.
 
-    pre-condition:  [WRITE YOUR PRE-CONDITION HERE]
-    post-condition: [WRITE YOUR POST-CONDITION HERE]
+    pre-condition:  Karel has a wall to his right and his front is clear with no beepers in his path.
+    post-condition: Karel has gone one space past the end of the wall, so there is no longer a wall to his right, and he has left a trail of beepers behind him.
     """
     while not right_is_clear():
         if front_is_clear():
