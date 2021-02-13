@@ -28,7 +28,21 @@ def reach_center():
     pre-condition:  [WRITE YOUR PRE-CONDITION HERE]
     post-condition: [WRITE YOUR POST-CONDITION HERE]
     """
-    pass
+    while front_is_clear():
+        move()
+    turn_left()
+    move()
+    while front_is_clear() and not left_is_clear():
+        move()
+    turn_left()
+    move()
+    put_beeper()
+
+    while front_is_clear() or left_is_clear():
+        if front_is_clear():
+            move()
+        if left_is_clear():
+            turn_left()
 
 
 def leave_spiral():
@@ -38,17 +52,24 @@ def leave_spiral():
     pre-condition:  [WRITE YOUR PRE-CONDITION HERE]
     post-condition: [WRITE YOUR POST-CONDITION HERE]
     """
-    pass
+    while (front_is_clear() or right_is_clear()) and not on_beeper():
+        put_beeper()
+        if front_is_clear():
+            move()
+        if right_is_clear():
+            turn_right()
+    move()
 
 
 def turn_around():
     """
-    [WRITE YOUR FUNCTION'S DESCRIPTION HERE]
+    Instructs Karel to turn around.
 
-    pre-condition:  [WRITE YOUR PRE-CONDITION HERE]
-    post-condition: [WRITE YOUR POST-CONDITION HERE]
+    pre-condition:  Karel is facing any of the four cardinal directions.
+    post-condition: Karel will have performed a 180-degree turn.
     """
-    pass
+    turn_left()
+    turn_left()
 
 
 def turn_right():
